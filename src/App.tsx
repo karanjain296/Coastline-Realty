@@ -7,9 +7,13 @@ import BuilderDirectory from './components/BuilderDirectory';
 import HotProjects from './components/HotProjects';
 import ImageGallery from './components/ImageGallery';
 import PropertyComparison from './components/PropertyComparison';
-import { 
-  Building2, Landmark, Home, X, MapPin, 
-  IndianRupee, Sparkles, Globe, Calendar, Users, 
+import { LeadMagnet } from './components/LeadMagnet';
+import { FOMOTicker } from './components/FOMOTicker';
+import { UrgencyBar } from './components/UrgencyBar';
+import { WhatsAppButton } from './components/WhatsAppButton';
+import {
+  Building2, Landmark, Home, X, MapPin,
+  IndianRupee, Sparkles, Globe, Calendar, Users,
   CheckCircle2, PlayCircle, FileText, Heart, Phone,
   Zap, ShieldCheck, Scale, TrendingUp, Calculator, Gavel, Layers, ArrowRight, Briefcase, Compass
 } from 'lucide-react';
@@ -356,11 +360,14 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="min-h-screen bg-white font-sans selection:bg-orange-100 selection:text-orange-900">
+      <UrgencyBar />
       <Navbar />
-      
+
       <main>
         <Hero onSearch={setSearchQuery} />
+
+        <LeadMagnet />
 
         {/* Categories */}
         <section className="py-12 border-y border-zinc-100 bg-zinc-50/30">
@@ -827,6 +834,8 @@ function AppContent() {
       </footer>
 
       <ChatInterface />
+      <FOMOTicker />
+      <WhatsAppButton />
 
       {/* Comparison Bar */}
       {compareList.length > 0 && (

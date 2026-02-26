@@ -21,28 +21,28 @@ export default function Hero({ onSearch }: { onSearch?: (query: string) => void 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-xs font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-800 text-xs font-semibold mb-6"
           >
             <Globe className="w-3.5 h-3.5" />
-            Trusted by 500+ NRIs Worldwide
+            Trusted by 500+ NRI Investors Worldwide
           </motion.div>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl sm:text-6xl font-bold text-zinc-900 tracking-tight leading-[1.1] mb-6"
+            className="text-5xl sm:text-6xl font-bold text-gray-900 tracking-tight leading-[1.1] mb-6"
           >
-            Your Gateway to <span className="text-emerald-600">Coastal</span> Real Estate
+            Secure <span className="text-orange-500">High-Yield Assets</span> in India's Emerging Silicon Beach
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-zinc-600 mb-10 leading-relaxed"
+            className="text-lg text-gray-600 mb-10 leading-relaxed"
           >
-            Coastline Realty AI provides professional brokerage for locals and NRIs. We research 99acres, Housing.com, and MagicBricks to deliver 100% genuine market data with zero hallucinations.
+            Professional real estate investment advisory for NRIs and local investors. Access RERA-verified properties near Derebail IT Park with guaranteed transparency and zero hidden costs.
           </motion.p>
           
           <motion.div
@@ -53,7 +53,7 @@ export default function Hero({ onSearch }: { onSearch?: (query: string) => void 
           >
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="w-5 h-5 text-zinc-400 group-focus-within:text-emerald-600 transition-colors" />
+                <Search className="w-5 h-5 text-gray-400 group-focus-within:text-orange-500 transition-colors" />
               </div>
               <input
                 type="text"
@@ -63,8 +63,8 @@ export default function Hero({ onSearch }: { onSearch?: (query: string) => void 
                   onSearch?.(e.target.value);
                 }}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                placeholder="Search by builder, location, or project name..."
-                className="w-full pl-12 pr-16 py-4 bg-white border border-zinc-200 rounded-2xl shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-zinc-900"
+                placeholder="Search IT Park vicinity, luxury villas, or high-ROI properties..."
+                className="w-full pl-12 pr-16 py-4 bg-white border border-gray-200 rounded-2xl shadow-sm focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all text-gray-900"
               />
               <AnimatePresence>
                 {query.length > 0 && (
@@ -73,7 +73,7 @@ export default function Hero({ onSearch }: { onSearch?: (query: string) => void 
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     onClick={handleSearch}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-100"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all shadow-lg shadow-orange-100"
                   >
                     <Search className="w-5 h-5" />
                   </motion.button>
@@ -88,13 +88,13 @@ export default function Hero({ onSearch }: { onSearch?: (query: string) => void 
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <button className="w-full sm:w-auto px-8 py-4 bg-emerald-600 text-white rounded-2xl font-semibold hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-200">
-              Explore Properties
+            <button className="w-full sm:w-auto px-8 py-4 bg-orange-500 text-white rounded-2xl font-semibold hover:bg-orange-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-orange-200 transform hover:scale-105">
+              View High-Yield Assets
               <ArrowRight className="w-5 h-5" />
             </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-900 border border-zinc-200 rounded-2xl font-semibold hover:bg-zinc-50 transition-all flex items-center justify-center gap-2">
-              <MapPin className="w-5 h-5 text-emerald-600" />
-              View Map
+            <button className="w-full sm:w-auto px-8 py-4 bg-white text-gray-900 border-2 border-blue-900 rounded-2xl font-semibold hover:bg-blue-50 transition-all flex items-center justify-center gap-2">
+              <MapPin className="w-5 h-5 text-blue-900" />
+              IT Park Proximity Map
             </button>
           </motion.div>
         </div>

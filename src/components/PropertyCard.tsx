@@ -21,13 +21,13 @@ export default function PropertyCard({ property, onClick, onImageClick, onCompar
       onClick={() => onClick?.(property)}
       className="group bg-white rounded-3xl border border-zinc-100 overflow-hidden hover:shadow-xl hover:shadow-zinc-200/50 transition-all duration-300 cursor-pointer relative"
     >
-      <button 
+      <button
         onClick={(e) => {
           e.stopPropagation();
           toggleSaveProperty(property.id);
         }}
         className={`absolute top-4 right-4 z-10 p-2 rounded-full backdrop-blur-md transition-all ${
-          saved ? 'bg-emerald-600 text-white' : 'bg-white/80 text-zinc-400 hover:text-emerald-600'
+          saved ? 'bg-orange-500 text-white' : 'bg-white/80 text-gray-400 hover:text-orange-500'
         }`}
       >
         <Heart className={`w-4 h-4 ${saved ? 'fill-current' : ''}`} />
@@ -54,18 +54,26 @@ export default function PropertyCard({ property, onClick, onImageClick, onCompar
           View Gallery
         </div>
         <div className="absolute top-4 left-4 flex flex-col gap-2">
-          <span className="px-3 py-1 bg-emerald-600/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-emerald-400/30 shadow-lg shadow-emerald-900/20">
-            {property.category}
-          </span>
+          <div className="flex gap-2">
+            <span className="px-3 py-1 bg-orange-500/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-orange-400/30 shadow-lg shadow-orange-900/20">
+              {property.category}
+            </span>
+            <div className="px-3 py-1 bg-green-600/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-green-400/30 shadow-lg shadow-green-900/20 flex items-center gap-1">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              RERA Verified
+            </div>
+          </div>
           <button
             onClick={(e) => {
               e.stopPropagation();
               onCompare?.(property);
             }}
             className={`p-2 rounded-full backdrop-blur-md transition-all border ${
-              isComparing 
-                ? 'bg-emerald-600 border-emerald-400 text-white' 
-                : 'bg-white/80 border-white/20 text-zinc-400 hover:text-emerald-600'
+              isComparing
+                ? 'bg-orange-500 border-orange-400 text-white'
+                : 'bg-white/80 border-white/20 text-gray-400 hover:text-orange-500'
             }`}
             title="Add to Comparison"
           >
@@ -76,13 +84,13 @@ export default function PropertyCard({ property, onClick, onImageClick, onCompar
       
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-bold text-zinc-900 group-hover:text-emerald-600 transition-colors">
+          <h3 className="text-lg font-bold text-gray-900 group-hover:text-orange-500 transition-colors">
             {property.title}
           </h3>
-          <ArrowUpRight className="w-5 h-5 text-zinc-400 group-hover:text-emerald-600 transition-colors" />
+          <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-orange-500 transition-colors" />
         </div>
-        
-        <div className="flex items-center gap-1.5 text-zinc-500 text-sm mb-2">
+
+        <div className="flex items-center gap-1.5 text-gray-500 text-sm mb-2">
           <MapPin className="w-4 h-4" />
           {property.location}
         </div>
@@ -90,7 +98,7 @@ export default function PropertyCard({ property, onClick, onImageClick, onCompar
         {property.status && (
           <div className="flex items-center gap-2 mb-4">
             <div className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-              property.status === 'Ready to Occupy' ? 'bg-emerald-100 text-emerald-700' : 
+              property.status === 'Ready to Occupy' ? 'bg-green-100 text-green-700' :
               property.status === 'Under Construction' ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700'
             }`}>
               {property.status}
@@ -124,19 +132,19 @@ export default function PropertyCard({ property, onClick, onImageClick, onCompar
               e.stopPropagation();
               window.open(property.virtual_tour_url, '_blank');
             }}
-            className="flex items-center justify-center gap-2 w-full py-2.5 mb-4 bg-emerald-50 text-emerald-700 rounded-xl text-xs font-bold hover:bg-emerald-100 transition-all border border-emerald-100"
+            className="flex items-center justify-center gap-2 w-full py-2.5 mb-4 bg-blue-50 text-blue-800 rounded-xl text-xs font-bold hover:bg-blue-100 transition-all border border-blue-100"
           >
             <PlayCircle className="w-4 h-4" />
             Virtual Tour
           </button>
         )}
-        
-        <div className="flex items-center justify-between pt-4 border-t border-zinc-50">
-          <div className="flex items-center gap-1 text-emerald-700 font-bold text-xl">
+
+        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+          <div className="flex items-center gap-1 text-orange-500 font-bold text-xl">
             <IndianRupee className="w-4 h-4" />
             {property.price.replace('₹', '')}
           </div>
-          <div className="flex items-center gap-1.5 text-zinc-400 text-xs font-medium">
+          <div className="flex items-center gap-1.5 text-gray-400 text-xs font-medium">
             <Home className="w-4 h-4" />
             {property.type}
           </div>

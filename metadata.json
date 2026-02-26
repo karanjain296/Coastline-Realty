@@ -1,0 +1,5 @@
+{
+  "name": "Coastline Realty AI",
+  "description": "Premium Real Estate AI Broker for Coastal Karnataka. Researching 99acres, Housing.com, and MagicBricks to provide 100% genuine property data with zero hallucinations.",
+  "requestFramePermissions": ["geolocation"]
+}

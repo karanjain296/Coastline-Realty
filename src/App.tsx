@@ -12,6 +12,7 @@ import { FOMOTicker } from './components/FOMOTicker';
 import { UrgencyBar } from './components/UrgencyBar';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { SBTXOracle } from './components/SBTXOracle';
+import { SiliconBeachTerminal } from './components/SiliconBeachTerminal';
 import {
   Building2, Landmark, Home, X, MapPin,
   IndianRupee, Sparkles, Globe, Calendar, Users,
@@ -58,6 +59,7 @@ function AppContent() {
   const [currency, setCurrency] = useState<'INR' | 'AED' | 'SAR' | 'KWD'>('INR');
   const [isBookingVisit, setIsBookingVisit] = useState(false);
   const [showSBTX, setShowSBTX] = useState(false);
+  const [showSiliconBeach, setShowSiliconBeach] = useState(false);
   const { toggleSaveProperty, isSaved } = useAuth();
 
   useEffect(() => {
@@ -370,7 +372,7 @@ function AppContent() {
         <Hero onSearch={setSearchQuery} />
 
         <div className="py-8 bg-gradient-to-br from-[#0B0C10] to-gray-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             <button
               onClick={() => setShowSBTX(true)}
               className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-400 hover:via-blue-400 hover:to-purple-400 text-white rounded-3xl p-8 transition-all transform hover:scale-105 shadow-2xl shadow-cyan-500/30 relative overflow-hidden group"
@@ -394,6 +396,33 @@ function AppContent() {
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-black">LAUNCH</span>
                   <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
+                </div>
+              </div>
+            </button>
+
+            <button
+              onClick={() => setShowSiliconBeach(true)}
+              className="w-full bg-gradient-to-r from-cyan-600 via-cyan-500 to-blue-600 hover:from-cyan-500 hover:via-cyan-400 hover:to-blue-500 text-white rounded-3xl p-6 transition-all transform hover:scale-105 shadow-2xl shadow-cyan-600/30 relative overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-700/20 to-blue-700/20 blur-2xl group-hover:blur-3xl transition-all" />
+              <div className="relative flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
+                    <TrendingUp className="w-8 h-8" />
+                  </div>
+                  <div className="text-left">
+                    <h3 className="text-2xl font-black mb-1 tracking-tight">SILICON BEACH TERMINAL</h3>
+                    <p className="text-white/80 text-sm font-medium">High-Velocity Arbitrage & Infra-Pulse Intelligence</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <span className="px-2 py-0.5 bg-white/20 rounded text-xs font-bold">Verified 2026 Data</span>
+                      <span className="px-2 py-0.5 bg-white/20 rounded text-xs font-bold">Golden Radius Map</span>
+                      <span className="px-2 py-0.5 bg-white/20 rounded text-xs font-bold">WhatsApp Reports</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xl font-black">LAUNCH</span>
+                  <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                 </div>
               </div>
             </button>
@@ -1556,6 +1585,13 @@ function AppContent() {
       <AnimatePresence>
         {showSBTX && (
           <SBTXOracle onClose={() => setShowSBTX(false)} />
+        )}
+      </AnimatePresence>
+
+      {/* Silicon Beach Terminal */}
+      <AnimatePresence>
+        {showSiliconBeach && (
+          <SiliconBeachTerminal onClose={() => setShowSiliconBeach(false)} />
         )}
       </AnimatePresence>
 

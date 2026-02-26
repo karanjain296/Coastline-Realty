@@ -11,11 +11,12 @@ import { LeadMagnet } from './components/LeadMagnet';
 import { FOMOTicker } from './components/FOMOTicker';
 import { UrgencyBar } from './components/UrgencyBar';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { SBTXOracle } from './components/SBTXOracle';
 import {
   Building2, Landmark, Home, X, MapPin,
   IndianRupee, Sparkles, Globe, Calendar, Users,
   CheckCircle2, PlayCircle, FileText, Heart, Phone,
-  Zap, ShieldCheck, Scale, TrendingUp, Calculator, Gavel, Layers, ArrowRight, Briefcase, Compass
+  Zap, ShieldCheck, Scale, TrendingUp, Calculator, Gavel, Layers, ArrowRight, Briefcase, Compass, Cpu
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -56,6 +57,7 @@ function AppContent() {
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [currency, setCurrency] = useState<'INR' | 'AED' | 'SAR' | 'KWD'>('INR');
   const [isBookingVisit, setIsBookingVisit] = useState(false);
+  const [showSBTX, setShowSBTX] = useState(false);
   const { toggleSaveProperty, isSaved } = useAuth();
 
   useEffect(() => {
@@ -366,6 +368,37 @@ function AppContent() {
 
       <main>
         <Hero onSearch={setSearchQuery} />
+
+        <div className="py-8 bg-gradient-to-br from-[#0B0C10] to-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button
+              onClick={() => setShowSBTX(true)}
+              className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-400 hover:via-blue-400 hover:to-purple-400 text-white rounded-3xl p-8 transition-all transform hover:scale-105 shadow-2xl shadow-cyan-500/30 relative overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 to-purple-600/20 blur-2xl group-hover:blur-3xl transition-all" />
+              <div className="relative flex items-center justify-between">
+                <div className="flex items-center gap-6">
+                  <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
+                    <Cpu className="w-10 h-10" />
+                  </div>
+                  <div className="text-left">
+                    <h3 className="text-3xl font-black mb-2 tracking-tight">SBTX AI ORACLE</h3>
+                    <p className="text-white/80 text-lg font-medium">Silicon Beach Tech Exchange Intelligence System</p>
+                    <div className="flex items-center gap-3 mt-3">
+                      <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-bold">Arbitrage Engine</span>
+                      <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-bold">AI Terminal</span>
+                      <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-bold">Builder Tools</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl font-black">LAUNCH</span>
+                  <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
 
         <LeadMagnet />
 
@@ -1516,6 +1549,13 @@ function AppContent() {
               </div>
             </motion.div>
           </div>
+        )}
+      </AnimatePresence>
+
+      {/* SBTX Oracle */}
+      <AnimatePresence>
+        {showSBTX && (
+          <SBTXOracle onClose={() => setShowSBTX(false)} />
         )}
       </AnimatePresence>
 
